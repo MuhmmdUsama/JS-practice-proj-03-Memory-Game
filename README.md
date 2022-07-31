@@ -17,7 +17,7 @@
 ## Authors
 
 ##👤 Author
-<img src="https://avatars.githubusercontent.com/u/45886560?s=400&u=398b393687a05aa7e82482a81f0ed9c418f8f440&v=4" width="30px"/>
+<img src="https://avatars.githubusercontent.com/u/45886560?s=400&u=398b393687a05aa7e82482a81f0ed9c418f8f440&v=4" width="50px"/>
 
 - GitHub: [@muhmmdusama](https://github.com/muhmmdusama)
 - Twitter: [@muhmmdusama](https://twitter.com/muhmmdusama)
