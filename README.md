@@ -4,6 +4,10 @@
 
 > Memory Game, also known as the Concentration card game or Matching Game, is a simple card game where you need to match pairs by turning over 2 cards at a time.
 
+ <video width="320" height="240" controls>
+  <source src="./images.memo-demo.mp4" type="video/mp4">
+</video> 
+
 ## Built With
 
 - HTML
