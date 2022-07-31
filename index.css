@@ -85,12 +85,12 @@ body {
   border: 5px solid #0e763a;
 }
 
-.game-block.is-dlipped {
+.game-block.is-flipped {
   /* -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg); */
   transform: rotateY(180deg);
 }
 
-/* .game-block:hover{
-  transform: rotateY(180deg);
-} */
+.no-clicking{
+    pointer-events: none;
+}
