@@ -1,6 +1,7 @@
 const blockCard = document.querySelectorAll('.game-block');
 
 // ########### Splash screen #########################
+
 document.querySelector('.control-button span').onclick = () => {
   let myName = prompt('Enter Your Name');
   if (myName == '') {
@@ -42,6 +43,27 @@ let stopClicking = () => {
   setTimeout(() => blocksContainer.classList.remove('no-clicking'), 1000);
 };
 
+// ########### Matching Function #########################
+
+let matchBlocks = (firstblock, secondBlock) => {
+  let wrongTries = document.querySelector('.tries span');
+
+  if (firstblock.dataset.tech === secondBlock.dataset.tech) {
+    firstblock.classList.remove('is-flipped');
+    secondBlock.classList.remove('is-flipped');
+
+    firstblock.classList.add('is-matched');
+    secondBlock.classList.add('is-matched');
+  } else {
+    wrongTries.innerHTML = parseInt(wrongTries.innerHTML)+1;
+    // wrongTries.innerHTML +=1;
+    setTimeout(() => {
+      firstblock.classList.remove('is-flipped');
+      secondBlock.classList.remove('is-flipped');
+    }, 1000);
+  }
+};
+
 // ########### Flip Function #########################
 
 let flipBlock = (selectedBlock) => {
@@ -55,6 +77,8 @@ let flipBlock = (selectedBlock) => {
 
     // Stop Clicking
     stopClicking();
+    // Matching function
+    matchBlocks(flippedBlocks[0], flippedBlocks[1]);
   }
 };
 

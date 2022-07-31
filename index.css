@@ -85,7 +85,7 @@ body {
   border: 5px solid #0e763a;
 }
 
-.game-block.is-flipped {
+.game-block.is-flipped,.game-block.is-matched {
   /* -webkit-transform: rotateY(180deg);
     -moz-transform: rotateY(180deg); */
   transform: rotateY(180deg);
