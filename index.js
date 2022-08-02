@@ -1,5 +1,3 @@
-const blockCard = document.querySelectorAll('.game-block');
-
 // ########### Splash screen #########################
 
 document.querySelector('.control-button span').onclick = () => {
@@ -11,6 +9,16 @@ document.querySelector('.control-button span').onclick = () => {
     document.querySelector('.name span').textContent = myName;
   }
   document.querySelector('.control-button').remove();
+
+  blocks.forEach((block, index) => {
+    block.classList.add('is-flipped');
+  });
+
+  setTimeout(() => {
+    blocks.forEach((block, index) => {
+      block.classList.remove('is-flipped');
+    });
+  }, 2500);
 };
 
 // ########### Shuffle Function  #########################
@@ -25,10 +33,6 @@ let shuffle = (arr) => {
     temp = arr[currentNum];
     arr[currentNum] = arr[randomNum];
     arr[randomNum] = temp;
-    // Swaping values without temp var
-    //   arr[currentNum] = arr[currentNum] + arr[randomNum];
-    //   arr[randomNum] = arr[currentNum] - arr[randomNum];
-    //   arr[currentNum] = arr[currentNum] - arr[randomNum];
   }
   return arr;
 };
@@ -36,9 +40,6 @@ let shuffle = (arr) => {
 // ########### Stop Clicking Function #########################
 
 let stopClicking = () => {
-  // document
-  //   .querySelector('.game-block')
-  //   .addEventListener('click', (e) => e.stopPropagation());
   blocksContainer.classList.add('no-clicking');
   setTimeout(() => blocksContainer.classList.remove('no-clicking'), 1000);
 };
@@ -55,8 +56,7 @@ let matchBlocks = (firstblock, secondBlock) => {
     firstblock.classList.add('is-matched');
     secondBlock.classList.add('is-matched');
   } else {
-    wrongTries.innerHTML = parseInt(wrongTries.innerHTML)+1;
-    // wrongTries.innerHTML +=1;
+    wrongTries.innerHTML = parseInt(wrongTries.innerHTML) + 1;
     setTimeout(() => {
       firstblock.classList.remove('is-flipped');
       secondBlock.classList.remove('is-flipped');
@@ -73,16 +73,15 @@ let flipBlock = (selectedBlock) => {
     flippedBlock.classList.contains('is-flipped')
   );
   if (flippedBlocks.length === 2) {
-    console.log('Two Flipped');
-
     // Stop Clicking
     stopClicking();
     // Matching function
     matchBlocks(flippedBlocks[0], flippedBlocks[1]);
   }
+  if (blocks.classList.contains('is-flipped')) {
+    alert('You are a Winner');
+  }
 };
-
-// let duration = 1000;
 
 let blocksContainer = document.querySelector('.memory-game-container');
 
